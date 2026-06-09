@@ -6,6 +6,8 @@ ICARUS is a basic Gemini chatbot using Google AI Studio API key.
 
 """
 
+__author__ = "Ali Hassan"
+
 import os
 from dotenv import load_dotenv
 from google import genai
