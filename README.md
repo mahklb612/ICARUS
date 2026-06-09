@@ -1,10 +1,9 @@
-# ICARUS Setup Guide
-
-This guide explains how to set up ICARUS after the `icarus.py` file has already been created in your project folder.
+This guide explains how to set up ICARUS, including creating the `icarus.py` file, adding the API key, installing requirements, and running the chatbot in VS Code.
 
 It covers:
 
 - How to get a Gemini API key from Google AI Studio
+- How to create the `icarus.py` file
 - How to create the `.env` file
 - How to create the `requirements.txt` file
 - How to install the required Python packages
@@ -14,7 +13,7 @@ It covers:
 
 ## 1. Project Folder
 
-Your project folder should already contain your Python file:
+Your project folder should contain the following files:
 
 ```text
 icarus_chatbot/
@@ -25,11 +24,11 @@ icarus_chatbot/
 └── README.md
 ```
 
-If `.env` and `requirements.txt` do not exist yet, create them using the steps below.
+If `icarus.py`, `.env`, or `requirements.txt` do not exist yet, create them using the steps below.
 
 ---
 
-## 2. Get a free Gemini API Key from Google AI Studio
+## 2. Get a Gemini API Key from Google AI Studio
 
 1. Open Google AI Studio in your web browser:
 
@@ -49,7 +48,118 @@ https://aistudio.google.com/
 
 ---
 
-## 3. Create the `.env` File
+## 3. Create the `icarus.py` File
+
+In the same project folder, create a Python file named:
+
+```text
+icarus.py
+```
+
+This file contains the ICARUS chatbot program. Copy the following code into `icarus.py`:
+
+```python
+"""
+11.1HD - Exploring AI Chatbots for beginners
+
+ICARUS is a basic Gemini chatbot using Google AI Studio API key.
+
+"""
+
+import os
+from dotenv import load_dotenv
+from google import genai
+
+
+BOT_NAME = "ICARUS"
+
+
+def load_api_key():
+    """
+    Load the Gemini API key from the .env file.
+
+    Returns:
+        str: The Gemini API key.
+
+    Raises:
+        ValueError: If the API key is missing.
+    """
+    load_dotenv()
+
+    api_key = os.getenv("GEMINI_API_KEY")
+
+    if not api_key:
+        raise ValueError(
+            "GEMINI_API_KEY was not found. "
+            "Please add it to your .env file."
+        )
+
+    return api_key
+
+
+def create_chatbot(api_key):
+    """
+    Create and return a Gemini chat session.
+
+    Args:
+        api_key (str): The Gemini API key.
+
+    Returns:
+        Chat: A Gemini chat session.
+    """
+    client = genai.Client(api_key=api_key)
+
+    chat = client.chats.create(
+        model="gemini-2.5-flash"
+    )
+
+    return chat
+
+
+def run_chatbot():
+    """
+    Run the terminal-based ICARUS chatbot.
+    """
+    print("=" * 50)
+    print(f"{BOT_NAME} - Gemini Basic Chatbot")
+    print("Type 'exit', 'quit', or 'bye' to stop.")
+    print("=" * 50)
+
+    try:
+        api_key = load_api_key()
+        chat = create_chatbot(api_key)
+
+        while True:
+            user_message = input("\nYou: ").strip()
+
+            if user_message.lower() in ["exit", "quit", "bye"]:
+                print(f"\n{BOT_NAME}: Goodbye!")
+                break
+
+            if user_message == "":
+                print(f"{BOT_NAME}: Please type a message.")
+                continue
+
+            response = chat.send_message(user_message)
+
+            print(f"\n{BOT_NAME}: {response.text}")
+
+    except ValueError as error:
+        print(f"\nConfiguration Error: {error}")
+
+    except Exception as error:
+        print(f"\nUnexpected Error: {type(error).__name__}: {error}")
+
+
+if __name__ == "__main__":
+    run_chatbot()
+```
+
+Save the file before continuing.
+
+---
+
+## 4. Create the `.env` File
 
 In the same folder as `icarus.py`, create a file named:
 
@@ -78,7 +188,7 @@ Important notes:
 - Make sure the file is named `.env`, not `.env.txt`.
 - Keep this file in the same folder as `icarus.py`.
 
-## 4. Create the `requirements.txt` File
+## 5. Create the `requirements.txt` File
 
 In the same folder as `icarus.py`, create a file named:
 
@@ -100,7 +210,7 @@ These packages are required because:
 
 ---
 
-## 5. Open the Project in VS Code
+## 6. Open the Project in VS Code
 
 1. Open Visual Studio Code.
 2. Select **File**.
@@ -114,7 +224,7 @@ Terminal > New Terminal
 
 ---
 
-## 6. Install the Requirements
+## 7. Install the Requirements
 
 Install the required packages using:
 
@@ -130,7 +240,7 @@ pip install google-genai python-dotenv
 
 ---
 
-## 7. Run ICARUS
+## 8. Run ICARUS
 
 After the packages are installed and the `.env` file is ready, run the chatbot from the VS Code terminal:
 
@@ -146,7 +256,7 @@ python3 icarus.py
 
 ---
 
-## 8. Expected Output
+## 9. Expected Output
 
 When ICARUS starts successfully, you should see output similar to this:
 
@@ -189,7 +299,7 @@ bye
 
 ---
 
-## 9. Troubleshooting commonn Problems
+## 10. Troubleshooting Common Problems
 
 ### Problem: `GEMINI_API_KEY was not found`
 
@@ -243,7 +353,7 @@ Check that:
 
 ---
 
-## 10. Final Checklist
+## 11. Final Checklist
 
 Before running ICARUS, confirm the following:
 
