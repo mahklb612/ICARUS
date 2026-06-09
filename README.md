@@ -1,3 +1,20 @@
+<!-- ICARUS_TOP_GRAPHIC_START -->
+```text
+╔════════════════════════════════════════════════╗
+║                                                ║
+║   _____  _____          _____  _    _  _____   ║
+║  |_   _|/ ____|   /\   |  __ \| |  | |/ ____|  ║
+║    | | | |       /  \  | |__) | |  | | (___    ║
+║    | | | |      / /\ \ |  _  /| |  | |\___ \   ║
+║   _| |_| |____ / ____ \| | \ \| |__| |____) |  ║
+║  |_____|\_____/_/    \_\_|  \_\\____/|_____/   ║
+║                                                ║
+║      Gemini API Terminal Chatbot               ║
+║                                                ║
+╚════════════════════════════════════════════════╝
+```
+<!-- ICARUS_TOP_GRAPHIC_END -->
+
 # ICARUS Chatbot Setup Guide
 
 This guide explains how to set up ICARUS, a Google Gemini based chatbot, including creating the `icarus.py` file, adding the API key, installing requirements, and running the chatbot in VS Code.
@@ -14,6 +31,7 @@ It covers:
 ---
 
 ## 1. Project Folder
+---
 
 Your project folder should contain the following files:
 
@@ -31,6 +49,7 @@ If `icarus.py`, `.env`, or `requirements.txt` do not exist yet, create them in V
 ---
 
 ## 2. Get a free Gemini API Key from Google AI Studio
+---
 
 1. Open Google AI Studio in your web browser:
 
@@ -51,6 +70,7 @@ https://aistudio.google.com/
 ---
 
 ## 3. Create the `icarus.py` File
+---
 
 In the same project folder, create a Python file named:
 
@@ -164,6 +184,7 @@ Save the file before continuing.
 ---
 
 ## 4. Create the `.env` File
+---
 
 In the same folder as `icarus.py`, create a file named:
 
@@ -192,7 +213,10 @@ Important notes:
 - Make sure the file is named `.env`, not `.env.txt`.
 - Keep this file in the same folder as `icarus.py`.
 
+---
+
 ## 5. Create the `requirements.txt` File
+---
 
 In the same folder as `icarus.py`, create a file named:
 
@@ -215,6 +239,7 @@ These packages are required because:
 ---
 
 ## 6. Open the Project in VS Code
+---
 
 1. Open Visual Studio Code.
 2. Select **File**.
@@ -229,6 +254,7 @@ Terminal > New Terminal
 ---
 
 ## 7. Install the Requirements
+---
 
 Install the required packages using:
 
@@ -245,6 +271,7 @@ pip install google-genai python-dotenv
 ---
 
 ## 8. Run ICARUS
+---
 
 After the packages are installed and the `.env` file is ready, run the chatbot from the VS Code terminal:
 
@@ -261,6 +288,7 @@ python3 icarus.py
 ---
 
 ## 9. Expected Output
+---
 
 When ICARUS starts successfully, you should see output similar to this:
 
@@ -304,6 +332,7 @@ bye
 ---
 
 ## 10. Troubleshooting Common Problems
+---
 
 ### Problem: `GEMINI_API_KEY was not found`
 
@@ -358,6 +387,7 @@ Check that:
 ---
 
 ## 11. Final Checklist
+---
 
 Before running ICARUS, confirm the following:
 
@@ -368,3 +398,70 @@ Before running ICARUS, confirm the following:
 - The virtual environment is activated.
 - The required packages are installed.
 - The chatbot is started using `python icarus.py`.
+
+---
+
+## 12. Optional: Use a Virtual Environment
+---
+
+A virtual environment is optional, but it is recommended because it keeps the ICARUS project packages separate from other Python projects on your computer.
+
+### Step 1: Create the virtual environment
+
+From the ICARUS project folder in the VS Code terminal, run:
+
+```text
+python -m venv .venv
+```
+
+This creates a local folder named `.venv` for the project environment.
+
+### Step 2: Activate the virtual environment
+
+For Windows Command Prompt or PowerShell:
+
+```text
+.venv\Scripts\activate
+```
+
+If PowerShell blocks the command, use:
+
+```text
+.venv\Scripts\Activate.ps1
+```
+
+For macOS or Linux:
+
+```text
+source .venv/bin/activate
+```
+
+When the virtual environment is active, the terminal should show something similar to:
+
+```text
+(.venv)
+```
+
+### Step 3: Install the project requirements
+
+After activating the virtual environment, install the required packages:
+
+```text
+pip install -r requirements.txt
+```
+
+### Step 4: Run ICARUS
+
+Run the chatbot:
+
+```text
+python icarus.py
+```
+
+### Step 5: Deactivate the virtual environment
+
+When finished, you can leave the virtual environment by running:
+
+```text
+deactivate
+```
