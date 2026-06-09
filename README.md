@@ -1,4 +1,6 @@
-This guide explains how to set up ICARUS, including creating the `icarus.py` file, adding the API key, installing requirements, and running the chatbot in VS Code.
+# ICARUS Chatbot Setup Guide
+
+This guide explains how to set up ICARUS, a Google Gemini based chatbot, including creating the `icarus.py` file, adding the API key, installing requirements, and running the chatbot in VS Code.
 
 It covers:
 
@@ -7,7 +9,7 @@ It covers:
 - How to create the `.env` file
 - How to create the `requirements.txt` file
 - How to install the required Python packages
-- How to run ICARUS from VS Code
+- How to run ICARUS from Visual Studio (VS) Code
 
 ---
 
@@ -24,11 +26,11 @@ icarus_chatbot/
 └── README.md
 ```
 
-If `icarus.py`, `.env`, or `requirements.txt` do not exist yet, create them using the steps below.
+If `icarus.py`, `.env`, or `requirements.txt` do not exist yet, create them in VS Code using the steps below.
 
 ---
 
-## 2. Get a Gemini API Key from Google AI Studio
+## 2. Get a free Gemini API Key from Google AI Studio
 
 1. Open Google AI Studio in your web browser:
 
@@ -62,7 +64,7 @@ This file contains the ICARUS chatbot program. Copy the following code into `ica
 """
 11.1HD - Exploring AI Chatbots for beginners
 
-ICARUS is a basic Gemini chatbot using Google AI Studio API key.
+ICARUS is a basic Gemini chatbot using Google AI Studio free API key.
 
 """
 
