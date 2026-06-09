@@ -29,7 +29,7 @@ If `.env` and `requirements.txt` do not exist yet, create them using the steps b
 
 ---
 
-## 2. Get a Gemini API Key from Google AI Studio
+## 2. Get a free Gemini API Key from Google AI Studio
 
 1. Open Google AI Studio in your web browser:
 
